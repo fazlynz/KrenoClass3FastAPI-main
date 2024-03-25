@@ -25,7 +25,8 @@ app = FastAPI()
 async def predict(request: LoanApplication):
     start_time = time.time()  # Record the start time
 
-    data = request.dict()  # Use .dict() instead of .model_dump() to get the input data as a dictionary
+    #data = request.dict()  # Use .dict() instead of .model_dump() to get the input data as a dictionary
+    data = request.model_dump()
     df = pd.DataFrame([data])
 
     # Fill empty values for Credit_History column with value 1
@@ -70,7 +71,7 @@ async def predict(request: LoanApplication):
     end_time = time.time()
     time_taken = f"{int((end_time - start_time) * 1000)}ms"  # Convert time to milliseconds
 
-    # Prepare response
+    # Prepare output
     return {
         "loan_id": loan_id,
         "predicted_class": prediction[0],
