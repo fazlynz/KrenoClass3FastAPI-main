@@ -14,6 +14,13 @@
 11. Now go to your browser and type `http://localhost:8000/`
 12. If you see Hello World in JSON then you are good to go
 
+Mynote(winsodws10-64-bit):
+activate krenoC4
+python -m pip install -r requirements.txt
+python -m pip install uvicorn
+python -m pip install --upgrade pip
+python -m uvicorn main:app --reload
+
 ### Data Dictionary
 
 |Name|Sample|Unique Values|Type|
